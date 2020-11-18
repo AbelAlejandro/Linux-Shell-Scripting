@@ -27,13 +27,22 @@ cat ${FILE}
 # FD0 is STDIN (and can be redirected to a specific file)
 # FD1 is STDOUT
 # FD2 is STDERR
+
 # Usage 
-# command 0> outputfile (redirects STDIN and overwrites outputfile)
-# command 1>> outputfile (redirects STDOUT and appends outputfile)
-# command 2>> outputfile (redirects STDERR and appends outputfile)
+# command 0> file (redirects STDIN and overwrites file)
+# command 1>> file (redirects STDOUT and appends file)
+# command 2>> file (redirects STDERR and appends file)
+
 # To redirect both STDOUT and STDERR use & like so:
-# command &> outputfile (to redirect and overwrite)
-# command &>> outputfile (to redirect and append)
+# command &> file (to redirect and overwrite)
+# command &>> file (to redirect and append)
+
+# To redirect STDIN from a file into a command like so:
+# command < file
+# To redirect STDOUT nowhere use /dev/null like so:
+# command > /dev/null
+# To redirect STDOUT to STDERR do like so:
+# command >&2
 
 # Note: Pipes | accept STDOUT by default 
 # and reject STDERR (which usually goes to the screen)
